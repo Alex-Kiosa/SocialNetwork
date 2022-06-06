@@ -1,0 +1,9 @@
+.nav {
+    padding: 15px;
+    grid-area: n;
+    background: #fff;
+}
+
+.item {
+    display: block;
+}

@@ -1,0 +1,9 @@
+.content {
+    grid-area: c;
+}
+
+.content-img {
+    height: 280px;
+    background-image: url(https://img5.goodfon.ru/wallpaper/nbig/1/c2/matrix-green-numbers.jpg);
+    background-size: contain;
+}
