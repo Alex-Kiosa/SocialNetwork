@@ -1,3 +1,17 @@
+@import "normalize.css";
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    color: #1f1f1f;
+}
+
+a{
+    color: #4646FF;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,7 +19,7 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F3F2EF;
+    background-color: #EDF2F6;
 }
 
 code {

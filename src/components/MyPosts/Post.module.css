@@ -1,0 +1,7 @@
+.wrap{
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    background: #fff;
+    margin-bottom: 15px;
+}

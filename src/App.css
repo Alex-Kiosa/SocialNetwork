@@ -1,12 +1,16 @@
-.app-wrapper {
-    max-width: 1128px;
+.app-wrap {
+    max-width: 960px;
     margin: auto;
     display: grid;
     drid-template-rows: 60px 1fr 50px;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 20px;
+    grid-template-columns: 25% 75%;
+    grid-gap: 25px;
     grid-template-areas:
         "h h"
         "n c"
         "f f";
+}
+
+.app-wrap-content {
+    grid-area: c;
 }
