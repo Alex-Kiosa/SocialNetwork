@@ -4,12 +4,12 @@ import {Dialog} from "./Dialog/Dialog";
 import {Message} from "./Message/Message";
 import {DialogType, MessageType} from "../../index";
 
-type DailogsPropsType = {
+type DialogsPropsType = {
     dialogs: Array<DialogType>,
     messages: Array<MessageType>
 }
 
-export const Dialogs = ({dialogs, messages, ...props} : DailogsPropsType) => {
+export const Dialogs = ({dialogs, messages, ...props} : DialogsPropsType) => {
     return (
         <div className={style.wrap}>
             <h1 className={style.title}>Dialogs</h1>

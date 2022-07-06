@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Settings = () => {
+export const Friends = () => {
     return (
         <div>Settings</div>
     )

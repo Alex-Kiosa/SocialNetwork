@@ -1,7 +1,28 @@
-.wrap{
+.wrap {
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
     background: #fff;
     margin-bottom: 15px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.headerImg {
+    width: 50px;
+    height: auto;
+    border-radius: 50rem;
+    margin-right: 10px;
+}
+
+.likes {
+    display: flex;
+    align-items: center;
 }
