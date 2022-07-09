@@ -1,15 +1,15 @@
 import React from "react";
-import {FundraisingType} from "../../index";
+import {FundraisingType} from "../../redux/state";
 import {FundPost} from "./FundPost";
 
 type FundraisingPropsType = {
     fundPosts: Array<FundraisingType>
 }
 
-export const Fundraising = ({fundPosts, ...props} : FundraisingPropsType) => {
+export const Fundraising: React.FC<FundraisingPropsType> = (props) => {
     return (
         <>
-            {fundPosts.map(p => <FundPost img={p.image}/>)}
+            {props.fundPosts.map(p => <FundPost img={p.image}/>)}
         </>
     )
 }

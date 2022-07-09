@@ -6,10 +6,14 @@
     background: #fff;
 }
 
-.item a{
+.item{
     display: block;
+    margin: 0 10px;
+    text-display: none;
 }
 
-.item a.active{
-    color: red
+.active{
+    margin: 0 10px;
+    color: red;
+    text-decoration: underline;
 }

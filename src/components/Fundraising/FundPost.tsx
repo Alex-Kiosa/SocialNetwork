@@ -1,12 +1,10 @@
 import React from "react";
-import {reducer} from "redux-form";
 
 type FundPostPropsType = {
     img: any // need to fix
 }
 
-export const FundPost = ({img,...props} : FundPostPropsType) => {
-    debugger
+export const FundPost :React.FC<FundPostPropsType>= (props) => {
     return (
         <div>
             <div className="card">

@@ -2,12 +2,43 @@ import {v1} from "uuid";
 import funder1 from "../assets/img/fundraising/funder-1.jpg";
 import funder2 from "../assets/img/fundraising/funder-2.jpg";
 import funder3 from "../assets/img/fundraising/funder-3.jpg";
+import {renderTree} from "../renderTree";
 
-export const state = {
-    profilePage : {
+export type DialogType = { id: string, name: string }
+export type MessageType = { id: string, message: string }
+export type PostType = { id: string, text: string, likes: number }
+export type FundraisingType = { id: string, image: any /*need to fix*/, title: string, countPeoples: number }
+
+export type ProfilePageType = {
+    textForNewPost: string
+    posts: Array<PostType>
+}
+
+export type  DialogsPageType = {
+    dialogs: Array<DialogType>,
+    messages: Array<MessageType>
+}
+
+export type FundRaisingPageType = {
+    fundPosts: Array<FundraisingType>
+}
+
+export type RootStateType = {
+    profilePage: ProfilePageType,
+    dialogsPage: DialogsPageType,
+    fundraisingPage: FundRaisingPageType,
+}
+
+export const state: RootStateType = {
+    profilePage: {
+        textForNewPost: "ssss",
         posts: [
-            {text: "React - это JS библиотека, для эфективной отрисовки (рендеринга) SPA или другрими словами одностраничных вебприложений. Что это значит? Реакт подгружает один html документ, в котором мало html и много js. Далее он отслеживает изменение конкретного узла, элемента, и при необходимости рендерит только его, а не всю все страницу, в отличие от класической работы вебсайтов.", likes: 13},
-            {text: "Установка приложения на TS: yarn create react-app my-app --template typescript", likes: 4}
+            {
+                id: v1(),
+                text: "React - это JS библиотека, для эфективной отрисовки (рендеринга) SPA или другрими словами одностраничных вебприложений. Что это значит? Реакт подгружает один html документ, в котором мало html и много js. Далее он отслеживает изменение конкретного узла, элемента, и при необходимости рендерит только его, а не всю все страницу, в отличие от класической работы вебсайтов.",
+                likes: 13
+            },
+            {id: v1(), text: "Установка приложения на TS: yarn create react-app my-app --template typescript", likes: 4}
         ],
     },
     dialogsPage: {
@@ -18,17 +49,28 @@ export const state = {
             {id: v1(), name: "Amelia Earhart"}
         ],
         messages: [
-            {id: v1(), message : "Никогда, никогда, вашу мать, не сдавайтесь!"},
-            {id: v1(), message: "Что разум человека может постигнуть и во что он может поверить, того он способен достичь"},
+            {id: v1(), message: "Никогда, никогда, вашу мать, не сдавайтесь!"},
+            {
+                id: v1(),
+                message: "Что разум человека может постигнуть и во что он может поверить, того он способен достичь"
+            },
             {id: v1(), message: "Стремитесь не к успеху, а к ценностям, которые он дает"},
             {id: v1(), message: "Сложнее всего начать действовать, все остальное зависит только от упорства."}
         ]
     },
     fundraisingPage: {
         fundPosts: [
-           {id: v1(), image: {funder1}, title: "Naveen's Boston Marathon & Charles River Marathon", countPeoples: 142},
-           {id: v1(), image: {funder2}, title: "Naveen's Boston Marathon & Charles River Marathon", countPeoples: 142},
-           {id: v1(), image: {funder3}, title: "Naveen's Boston Marathon & Charles River Marathon", countPeoples: 142},
-       ]
+            {id: v1(), image: {funder1}, title: "Naveen's Boston Marathon & Charles River Marathon", countPeoples: 142},
+            {id: v1(), image: {funder2}, title: "Naveen's Boston Marathon & Charles River Marathon", countPeoples: 142},
+            {id: v1(), image: {funder3}, title: "Naveen's Boston Marathon & Charles River Marathon", countPeoples: 142},
+        ]
     }
 }
+
+export const addPost = (text: string) => {
+    const newPost: PostType = {id: v1(), text, likes: 0}
+    state.profilePage.posts.push(newPost)
+
+    renderTree(state)
+}
+

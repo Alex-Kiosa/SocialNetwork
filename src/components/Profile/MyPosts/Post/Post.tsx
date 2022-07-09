@@ -3,12 +3,12 @@ import style from "./Post.module.css";
 import avatar from "../../../../assets/img/avatar.jpg"
 
 
-type PropsType = {
+type PostPropsType = {
     text: string
     likes: number
 }
 
-export const Post = (props: PropsType) => {
+export const Post : React.FC<PostPropsType> = (props) => {
     return (
         <div className={style.wrap}>
             <div className={style.header}>

@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Header.module.css";
 import logo from "../../assets/img/logo.png";
 
-export const Header = () => {
+export const Header: React.FC = (props) => {
     return (
         <header className={style.wrap}>
             <a href="/"><img className={style.logo} src={logo}/></a>
