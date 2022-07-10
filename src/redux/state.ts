@@ -2,7 +2,10 @@ import {v1} from "uuid";
 import funder1 from "../assets/img/fundraising/funder-1.jpg";
 import funder2 from "../assets/img/fundraising/funder-2.jpg";
 import funder3 from "../assets/img/fundraising/funder-3.jpg";
-import {renderTree} from "../renderTree";
+
+let renderTree = () => {
+    console.log(11)
+}
 
 export type DialogType = { id: string, name: string }
 export type MessageType = { id: string, message: string }
@@ -31,7 +34,7 @@ export type RootStateType = {
 
 export const state: RootStateType = {
     profilePage: {
-        textForNewPost: "ssss",
+        textForNewPost: "Write message",
         posts: [
             {
                 id: v1(),
@@ -67,10 +70,23 @@ export const state: RootStateType = {
     }
 }
 
-export const addPost = (text: string) => {
-    const newPost: PostType = {id: v1(), text, likes: 0}
-    state.profilePage.posts.push(newPost)
+export const subscribe = (observer: () => void) => {
+    renderTree = observer // pattern observer
+}
 
-    renderTree(state)
+export const addPost = () => {
+    const newPost: PostType = {id: v1(), text: state.profilePage.textForNewPost, likes: 0}
+    state.profilePage.posts.push(newPost)
+    state.profilePage.textForNewPost = ""
+
+    renderTree()
+}
+
+export const updateTextForNewPost = (text: string) => {
+
+    state.profilePage.textForNewPost = text
+    console.log(state)
+
+    renderTree()
 }
 

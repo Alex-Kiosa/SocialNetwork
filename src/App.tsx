@@ -8,12 +8,13 @@ import {Profile} from "./components/Profile/Profile";
 import {Footer} from "./components/Footer/Footer";
 import {Music} from "./components/Music/Music";
 import {Friends} from "./components/Friends/Friends";
-import {RootStateType} from "./redux/state";
+import {RootStateType, updateTextForNewPost} from "./redux/state";
 import {Fundraising} from './components/Fundraising/Fundraising';
 
 type AppPropsType = {
-    addPost: (text: string) => void
+    addPost: () => void
     state: RootStateType
+    updateTextForNewPost: (text: string) => void
 }
 
 export const App: React.FC<AppPropsType> = (props) => {
@@ -28,6 +29,7 @@ export const App: React.FC<AppPropsType> = (props) => {
                             posts={props.state.profilePage.posts}
                             addPost={props.addPost}
                             textForNewPost={props.state.profilePage.textForNewPost}
+                            updateTextForNewPost={props.updateTextForNewPost}
                         />}
                     />
                     <Route path="/dialogs" element={
