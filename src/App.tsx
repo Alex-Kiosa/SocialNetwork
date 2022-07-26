@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import './App.css';
+import {RootStateType} from "./redux/state";
 import {Header} from "./components/Header/Header";
 import {NavBar} from "./components/NavBar/NavBar";
 import {Dialogs} from "./components/Dialogs/Dialogs";
@@ -8,8 +8,8 @@ import {Profile} from "./components/Profile/Profile";
 import {Footer} from "./components/Footer/Footer";
 import {Music} from "./components/Music/Music";
 import {Friends} from "./components/Friends/Friends";
-import {RootStateType, updateTextForNewPost} from "./redux/state";
 import {Fundraising} from './components/Fundraising/Fundraising';
+import './App.css';
 
 type AppPropsType = {
     addPost: () => void

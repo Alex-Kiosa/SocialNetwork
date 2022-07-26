@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import {addPost, state, subscribe, updateTextForNewPost} from "./redux/state";
+import {state, addPost, updateTextForNewPost, RootStateType, subscribe} from "./redux/state";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import {App} from "./App";
@@ -16,4 +16,4 @@ const renderTree = () => {
 
 renderTree()
 
-subscribe(renderTree)
+subscribe(renderTree) // if state changed, call renderTree

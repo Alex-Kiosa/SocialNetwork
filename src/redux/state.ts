@@ -3,10 +3,6 @@ import funder1 from "../assets/img/fundraising/funder-1.jpg";
 import funder2 from "../assets/img/fundraising/funder-2.jpg";
 import funder3 from "../assets/img/fundraising/funder-3.jpg";
 
-let renderTree = () => {
-    console.log(11)
-}
-
 export type DialogType = { id: string, name: string }
 export type MessageType = { id: string, message: string }
 export type PostType = { id: string, text: string, likes: number }
@@ -32,6 +28,8 @@ export type RootStateType = {
     fundraisingPage: FundRaisingPageType,
 }
 
+let onChange = () => {}
+
 export const state: RootStateType = {
     profilePage: {
         textForNewPost: "Write message",
@@ -49,7 +47,7 @@ export const state: RootStateType = {
             {id: v1(), name: "Uinston_Cherchill"},
             {id: v1(), name: "Napoleon Hill"},
             {id: v1(), name: "Albert Einstein"},
-            {id: v1(), name: "Amelia Earhart"}
+            {id: v1(), name: "Amelia Earhart1111111"}
         ],
         messages: [
             {id: v1(), message: "Никогда, никогда, вашу мать, не сдавайтесь!"},
@@ -70,23 +68,21 @@ export const state: RootStateType = {
     }
 }
 
-export const subscribe = (observer: () => void) => {
-    renderTree = observer // pattern observer
-}
-
 export const addPost = () => {
     const newPost: PostType = {id: v1(), text: state.profilePage.textForNewPost, likes: 0}
     state.profilePage.posts.push(newPost)
     state.profilePage.textForNewPost = ""
 
-    renderTree()
+    onChange()
 }
 
 export const updateTextForNewPost = (text: string) => {
-
     state.profilePage.textForNewPost = text
-    console.log(state)
 
-    renderTree()
+    onChange()
+}
+
+export const subscribe = (observer: () => void) => {
+    onChange = observer // pattern observe (наблюдатель отслеживает изменения стейта, если стейт меняется - запускаем рендер)
 }
 
