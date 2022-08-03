@@ -1,6 +1,5 @@
 import React, {ChangeEvent} from "react";
 import style from "./AddPost.module.css";
-import {updateTextForNewPost} from "../../../redux/state";
 
 type AddPostType = {
     addPost: () => void
