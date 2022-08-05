@@ -8,11 +8,7 @@ import {App} from "./App";
 const renderTree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App
-                state={store.getState()}
-                addPost={store.addPost.bind(store)}
-                updateTextForNewPost={store.updateTextForNewPost.bind(store)}
-            />
+            <App store={store} />
         </BrowserRouter>,
         document.getElementById('root')
     );
@@ -20,4 +16,4 @@ const renderTree = () => {
 
 renderTree()
 
-store.subscribe(renderTree) // if state changed, call renderTree
+store.subscribe(renderTree) // pattern observer

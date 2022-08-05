@@ -1,27 +1,27 @@
 import React, {ChangeEvent} from "react";
 import style from "./AddPost.module.css";
+import {ActionsTypes, addPostAC, updNewPostTextAC} from "../../../redux/state";
 
 type AddPostType = {
-    addPost: () => void
-    textForNewPost: string
-    updateTextForNewPost: (text: string) => void
+    newPostText: string
+    dispatch: (action: ActionsTypes) => void
 }
 
 export const AddPost: React.FC<AddPostType> = (props) => {
 
     const addPostHandler = () => {
-        if (props.textForNewPost) {
-            props.addPost()
+        if (props.newPostText) {
+            props.dispatch(addPostAC())
         }
     }
 
     const onChangeTextareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.updateTextForNewPost(e.currentTarget.value)
+        props.dispatch(updNewPostTextAC(e.currentTarget.value))
     }
 
     return (
         <div className={style.wrap}>
-            <textarea className={style.textarea} value={props.textForNewPost}
+            <textarea className={style.textarea} value={props.newPostText}
                       onChange={onChangeTextareaHandler}></textarea>
             <button onClick={addPostHandler} className={style.button}>Add post</button>
         </div>

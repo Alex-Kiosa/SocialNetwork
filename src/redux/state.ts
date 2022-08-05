@@ -3,6 +3,19 @@ import funder1 from "../assets/img/fundraising/funder-1.jpg";
 import funder2 from "../assets/img/fundraising/funder-2.jpg";
 import funder3 from "../assets/img/fundraising/funder-3.jpg";
 
+export type StoreType = {
+    _callSubscriber: () => void
+    _state: RootStateType
+    getState: () => RootStateType
+    subscribe: (observer: () => void) => void
+    dispatch: (action: ActionsTypes) => void
+}
+export type RootStateType = {
+    profilePage: ProfilePageType,
+    dialogsPage: DialogsPageType,
+    fundraisingPage: FundRaisingPageType,
+    sidebar: SidebarType,
+}
 export type DialogType = {
     id: string,
     name: string
@@ -10,6 +23,11 @@ export type DialogType = {
 export type MessageType = {
     id: string,
     message: string
+}
+export type DialogsPageType = {
+    newMessagesText: string
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
 }
 export type PostType = {
     id: string,
@@ -23,29 +41,56 @@ export type FundraisingType = {
     countPeoples: number
 }
 export type ProfilePageType = {
-    textForNewPost: string
+    newPostText: string
     posts: Array<PostType>
-}
-export type DialogsPageType = {
-    dialogs: Array<DialogType>,
-    messages: Array<MessageType>
 }
 export type FundRaisingPageType = {
     fundPosts: Array<FundraisingType>
 }
-export type RootStateType = {
-    profilePage: ProfilePageType,
-    dialogsPage: DialogsPageType,
-    fundraisingPage: FundRaisingPageType,
+export type SidebarType = {
+    profile: string
+    messages: string
+    fundraising: string
+    music: string
+    friends: string
 }
 
-export const store = {
-    _callSubscriber() {
-        console.log("no observers")
-    },
+export type ActionsTypes =
+    ReturnType<typeof addPostAC> |
+    ReturnType<typeof updNewPostTextAC> |
+    ReturnType<typeof sendMessageAC> |
+    ReturnType<typeof updNewMessageTextAC>
+
+// Action creators
+export const addPostAC = () => {
+    return {
+        type: "ADD-POST"
+    } as const
+}
+export const updNewPostTextAC = (newPostText: string) => {
+    return {
+        type: "UPD-NEW-POST-TEXT",
+        newPostText: newPostText
+    } as const
+}
+export const sendMessageAC = () => {
+    return {
+        type: "SEND-MESSAGE"
+    } as const
+}
+export const updNewMessageTextAC = (newMessageText: string) => {
+    return {
+        type: "UPD-NEW-MESSAGE-TEXT",
+        newMessageText: newMessageText
+    } as const
+}
+
+
+// Store
+export const store: StoreType = {
     _state: {
         profilePage: {
-            textForNewPost: "Write message",
+            newPostText: "Write message",
             posts: [
                 {
                     id: v1(),
@@ -60,11 +105,12 @@ export const store = {
             ],
         },
         dialogsPage: {
+            newMessagesText: "Write message",
             dialogs: [
                 {id: v1(), name: "Uinston_Cherchill"},
                 {id: v1(), name: "Napoleon Hill"},
                 {id: v1(), name: "Albert Einstein"},
-                {id: v1(), name: "Amelia Earhart1111111"}
+                {id: v1(), name: "Amelia Earhart"}
             ],
             messages: [
                 {id: v1(), message: "Никогда, никогда, вашу мать, не сдавайтесь!"},
@@ -97,29 +143,59 @@ export const store = {
                     countPeoples: 142
                 },
             ]
+        },
+        sidebar: {
+            profile: "profile",
+            messages: "messages",
+            fundraising: "fundraising",
+            music: " music",
+            friends: "friends",
         }
     },
+    _callSubscriber() {
+        console.log("no observers")
+    },
+
     getState() {
-        debugger
         return this._state
     },
-    addPost() {
-        debugger
-        const newPost: PostType = {
-            id: v1(),
-            text: this._state.profilePage.textForNewPost,
-            likes: 0
-        }
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.textForNewPost = ""
-        this._callSubscriber()
-    },
-    updateTextForNewPost(text: string) {
-        this._state.profilePage.textForNewPost = text
-        this._callSubscriber()
-    },
     subscribe(observer: () => void) {
-        this._callSubscriber = observer // pattern observe (наблюдатель отслеживает изменения стейта, если стейт меняется - запускаем рендер)
+        this._callSubscriber = observer
+        // pattern observe (наблюдатель отслеживает изменения стейта, если стейт меняется - запускаем рендер)
+    },
+
+    dispatch(action) {
+        switch (action.type) {
+            case "ADD-POST":
+                const newPost: PostType = {
+                    id: v1(),
+                    text: this._state.profilePage.newPostText,
+                    likes: 0
+                }
+                this._state.profilePage.posts.push(newPost)
+                this._state.profilePage.newPostText = ""
+                this._callSubscriber()
+                break
+            case "UPD-NEW-POST-TEXT":
+                this._state.profilePage.newPostText = action.newPostText
+                this._callSubscriber()
+                break
+            case "SEND-MESSAGE":
+                const newMessage: MessageType = {
+                    id: v1(),
+                    message: this._state.dialogsPage.newMessagesText
+                }
+                this._state.dialogsPage.messages.push(newMessage)
+                this._state.dialogsPage.newMessagesText = ""
+                this._callSubscriber()
+                break
+            case "UPD-NEW-MESSAGE-TEXT":
+                this._state.dialogsPage.newMessagesText = action.newMessageText
+                this._callSubscriber()
+                break
+            default:
+                console.log("no actions")
+        }
     }
 }
 
