@@ -90,7 +90,7 @@ export const updNewMessageTextAC = (newMessageText: string) => {
 export const store: StoreType = {
     _state: {
         profilePage: {
-            newPostText: "Write message",
+            newPostText: "",
             posts: [
                 {
                     id: v1(),
@@ -105,7 +105,7 @@ export const store: StoreType = {
             ],
         },
         dialogsPage: {
-            newMessagesText: "Write message",
+            newMessagesText: "",
             dialogs: [
                 {id: v1(), name: "Uinston_Cherchill"},
                 {id: v1(), name: "Napoleon Hill"},

@@ -1,6 +1,8 @@
-import React, {ChangeEvent} from "react";
+import React from "react";
 import style from "./AddPost.module.css";
-import {ActionsTypes, addPostAC, updNewPostTextAC} from "../../../redux/state";
+import {ActionsTypes} from "../../../redux/state";
+import {Textarea} from "../../Textarea/Textarea";
+import {Button} from "../../Button/Button";
 
 type AddPostType = {
     newPostText: string
@@ -8,22 +10,13 @@ type AddPostType = {
 }
 
 export const AddPost: React.FC<AddPostType> = (props) => {
-
-    const addPostHandler = () => {
-        if (props.newPostText) {
-            props.dispatch(addPostAC())
-        }
-    }
-
-    const onChangeTextareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(updNewPostTextAC(e.currentTarget.value))
-    }
+    const isDisabled = !!props.newPostText
 
     return (
         <div className={style.wrap}>
-            <textarea className={style.textarea} value={props.newPostText}
-                      onChange={onChangeTextareaHandler}></textarea>
-            <button onClick={addPostHandler} className={style.button}>Add post</button>
+            <Textarea newItemText={props.newPostText} dispatch={props.dispatch}/>
+            <Button dispatch={props.dispatch} isDisabled={isDisabled}/>
         </div>
     )
 }
+

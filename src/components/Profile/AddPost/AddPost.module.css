@@ -2,14 +2,3 @@
     display: flex;
     margin-bottom: 15px;
 }
-
-.textarea{
-    width: 100%;
-}
-
-.button {
-    background-color: #4646FF;
-    min-width: 80px;
-    padding: 10px;
-    color: #fff;
-}

@@ -12,8 +12,6 @@ type DialogsPropsType = {
 }
 
 export const Dialogs = ({dialogs, messages, ...props}: DialogsPropsType) => {
-    const newMessageRef = React.createRef<HTMLTextAreaElement>()
-
     const sendMessage = () => {
         props.dispatch(sendMessageAC())
     }
@@ -30,9 +28,13 @@ export const Dialogs = ({dialogs, messages, ...props}: DialogsPropsType) => {
             </div>
             <div className={style.messages}>
                 {messages.map((m) => <Message message={m.message}/>)}
+                <textarea
+                    placeholder={"write the message"}
+                    value={props.newMessagesText}
+                    onChange={onChangeTextareaHandler}>
+                </textarea>
+                <button onClick={sendMessage}>Add message</button>
             </div>
-            <textarea ref={newMessageRef} value={props.newMessagesText} onChange={onChangeTextareaHandler}></textarea>
-            <button onClick={sendMessage}>Add message</button>
         </div>
     )
 }
