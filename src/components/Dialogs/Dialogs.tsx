@@ -3,6 +3,7 @@ import style from "./Dialogs.module.css"
 import {Dialog} from "./Dialog/Dialog";
 import {Message} from "./Message/Message";
 import {ActionsTypes, sendMessageAC, DialogType, MessageType, updNewMessageTextAC} from "../../redux/state";
+import {Textarea} from "../Textarea/Textarea";
 
 type DialogsPropsType = {
     dialogs: Array<DialogType>

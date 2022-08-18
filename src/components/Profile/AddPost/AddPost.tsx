@@ -10,7 +10,8 @@ type AddPostType = {
 }
 
 export const AddPost: React.FC<AddPostType> = (props) => {
-    const isDisabled = !!props.newPostText
+    const isDisabled = !props.newPostText
+    console.log(isDisabled)
 
     return (
         <div className={style.wrap}>

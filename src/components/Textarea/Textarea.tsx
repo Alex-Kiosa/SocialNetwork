@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from "react"
-import style from "../Profile/AddPost/AddPost.module.css";
 import {ActionsTypes, updNewPostTextAC} from "../../redux/state";
+import style from "./Textarea.module.css"
 
 type TextareaPropsType = {
     newItemText: string
@@ -15,9 +15,9 @@ export const Textarea: React.FC<TextareaPropsType> = (props) => {
     return (
         <textarea
             placeholder={"write the message"}
-            className={style.textarea}
             value={props.newItemText}
             onChange={onChangeTextareaHandler}
+            className={style.textarea}
         >
         </textarea>
     )

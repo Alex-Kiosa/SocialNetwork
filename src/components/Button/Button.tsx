@@ -1,6 +1,6 @@
 import React from "react";
 import {ActionsTypes, addPostAC} from "../../redux/state";
-import style from "../Profile/AddPost/AddPost.module.css";
+import style from "../Button/Button.module.css";
 
 type ButtonPropsType = {
     dispatch: (action: ActionsTypes) => void
@@ -9,18 +9,18 @@ type ButtonPropsType = {
 
 export const Button : React.FC<ButtonPropsType> = (props) => {
     const addPostHandler = () => {
-        if (props.isDisabled) {
+        if (!props.isDisabled) {
             props.dispatch(addPostAC())
         }
     }
 
-    debugger
+    let buttonStyles = props.isDisabled ? `${style.button} + ${style.disabled}` : style.button
 
     return (
         <button
             onClick={addPostHandler}
-            /*disabled={props.isDisabled}// need to fix*/
-            className={style.button}
+            disabled={props.isDisabled}
+            className={buttonStyles}
         >Add post</button>
     )
 }
