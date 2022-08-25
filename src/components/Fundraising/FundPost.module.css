@@ -1,0 +1,31 @@
+.post {
+    display: flex;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.postImg {
+    width: 40%;
+    min-height: 200px;
+    margin-right: 15px;
+    background-color: #BBB8F8;
+    border-radius: 10px;
+}
+
+.postContent{
+    display: flex;
+    flex-direction: column;
+}
+
+.postTitle {
+    margin-bottom: 5px;
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+.postFooter {
+
+}

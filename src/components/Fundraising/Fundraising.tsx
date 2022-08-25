@@ -7,9 +7,10 @@ type FundraisingPropsType = {
 }
 
 export const Fundraising: React.FC<FundraisingPropsType> = (props) => {
+    console.log(props.fundPosts)
     return (
         <>
-            {props.fundPosts.map(p => <FundPost img={p.image}/>)}
+            {props.fundPosts.map(p => <FundPost title={p.title} donatedPeoples={p.donatedPeoples}/>)}
         </>
     )
 }

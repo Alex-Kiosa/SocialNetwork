@@ -36,9 +36,9 @@ export type PostType = {
 }
 export type FundraisingType = {
     id: string,
-    image: any /*need to fix*/,
+    image: any, // need to fix
     title: string,
-    countPeoples: number
+    donatedPeoples: number
 }
 export type ProfilePageType = {
     newPostText: string
@@ -127,20 +127,20 @@ export const store: StoreType = {
                 {
                     id: v1(),
                     image: {funder1},
-                    title: "Naveen's Boston Marathon & Charles River Marathon",
-                    countPeoples: 142
+                    title: "один",
+                    donatedPeoples: 33
                 },
                 {
                     id: v1(),
                     image: {funder2},
-                    title: "Naveen's Boston Marathon & Charles River Marathon",
-                    countPeoples: 142
+                    title: "два",
+                    donatedPeoples: 64
                 },
                 {
                     id: v1(),
                     image: {funder3},
-                    title: "Naveen's Boston Marathon & Charles River Marathon",
-                    countPeoples: 142
+                    title: "три",
+                    donatedPeoples: 59
                 },
             ]
         },
