@@ -1,5 +1,8 @@
-import {ActionsTypes, ProfilePageType} from "./state";
+import {ActionsTypes, FundRaisingPageType, ProfilePageType} from "./state";
 
-export const fundraisingReducer = (state: ProfilePageType, action: ActionsTypes) => {
-    return action
+const fundraisingReducer = (state: FundRaisingPageType, action: ActionsTypes) => {
+
+    return state
 }
+
+export default fundraisingReducer

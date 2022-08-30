@@ -1,5 +1,6 @@
 import React, {ChangeEvent} from "react"
-import {ActionsTypes, updNewPostTextAC} from "../../redux/state";
+import {ActionsTypes} from "../../redux/state";
+import {updNewPostTextAC} from "../../redux/profileReducer";
 import style from "./Textarea.module.css"
 
 type TextareaPropsType = {

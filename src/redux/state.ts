@@ -2,6 +2,10 @@ import {v1} from "uuid";
 import funder1 from "../assets/img/fundraising/funder-1.jpg";
 import funder2 from "../assets/img/fundraising/funder-2.jpg";
 import funder3 from "../assets/img/fundraising/funder-3.jpg";
+import profileReducer, {addPostAC, updNewPostTextAC} from "./profileReducer";
+import dialogsReducer, {sendMessageAC, updNewMessageTextAC} from "./dialogsReducer";
+import fundraisingReducer from "./fundraisingReducer";
+import sidebarReducer from "./sidebarReducer";
 
 export type StoreType = {
     _callSubscriber: () => void
@@ -54,37 +58,11 @@ export type SidebarType = {
     music: string
     friends: string
 }
-
 export type ActionsTypes =
     ReturnType<typeof addPostAC> |
     ReturnType<typeof updNewPostTextAC> |
     ReturnType<typeof sendMessageAC> |
     ReturnType<typeof updNewMessageTextAC>
-
-// Action creators
-export const addPostAC = () => {
-    return {
-        type: "ADD-POST"
-    } as const
-}
-export const updNewPostTextAC = (newPostText: string) => {
-    return {
-        type: "UPD-NEW-POST-TEXT",
-        newPostText: newPostText
-    } as const
-}
-export const sendMessageAC = () => {
-    return {
-        type: "SEND-MESSAGE"
-    } as const
-}
-export const updNewMessageTextAC = (newMessageText: string) => {
-    return {
-        type: "UPD-NEW-MESSAGE-TEXT",
-        newMessageText: newMessageText
-    } as const
-}
-
 
 // Store
 export const store: StoreType = {
@@ -165,37 +143,11 @@ export const store: StoreType = {
     },
 
     dispatch(action) {
-        switch (action.type) {
-            case "ADD-POST":
-                const newPost: PostType = {
-                    id: v1(),
-                    text: this._state.profilePage.newPostText,
-                    likes: 0
-                }
-                this._state.profilePage.posts.push(newPost)
-                this._state.profilePage.newPostText = ""
-                this._callSubscriber()
-                break
-            case "UPD-NEW-POST-TEXT":
-                this._state.profilePage.newPostText = action.newPostText
-                this._callSubscriber()
-                break
-            case "SEND-MESSAGE":
-                const newMessage: MessageType = {
-                    id: v1(),
-                    message: this._state.dialogsPage.newMessagesText
-                }
-                this._state.dialogsPage.messages.push(newMessage)
-                this._state.dialogsPage.newMessagesText = ""
-                this._callSubscriber()
-                break
-            case "UPD-NEW-MESSAGE-TEXT":
-                this._state.dialogsPage.newMessagesText = action.newMessageText
-                this._callSubscriber()
-                break
-            default:
-                console.log("no actions")
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._state.fundraisingPage = fundraisingReducer(this._state.fundraisingPage, action)
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+        this._callSubscriber()
     }
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
-import {ActionsTypes, addPostAC} from "../../redux/state";
+import {ActionsTypes} from "../../redux/state";
+import {addPostAC} from "../../redux/profileReducer";
 import style from "../Button/Button.module.css";
 
 type ButtonPropsType = {
