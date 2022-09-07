@@ -2,40 +2,39 @@ import React, {ChangeEvent} from "react";
 import style from "./Dialogs.module.css"
 import {Dialog} from "./Dialog/Dialog";
 import {Message} from "./Message/Message";
-import {ActionsTypes, DialogType, MessageType} from "../../redux/state";
-import {sendMessageAC, updNewMessageTextAC} from "../../redux/dialogsReducer";
-import {Textarea} from "../Textarea/Textarea";
+import {DialogType, MessageType} from "../../redux/store";
 
 type DialogsPropsType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
     newMessagesText: string
-    dispatch: (action: ActionsTypes) => void
+    sendMessage: () => void
+    updNewMessageText: (text:string) => void
 }
 
-export const Dialogs = ({dialogs, messages, ...props}: DialogsPropsType) => {
-    const sendMessage = () => {
+export const Dialogs :React.FC<DialogsPropsType> = (props) => {
+    /*const sendMessage = () => {
         props.dispatch(sendMessageAC())
-    }
+    }*/
 
     const onChangeTextareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(updNewMessageTextAC(e.currentTarget.value))
+        props.updNewMessageText(e.currentTarget.value)
     }
 
     return (
         <div className={style.wrap}>
             <h1 className={style.title}>Dialogs</h1>
             <div className={style.dialogsItems}>
-                {dialogs.map((d) => <Dialog id={d.id} name={d.name}/>)}
+                {props.dialogs.map((d) => <Dialog id={d.id} name={d.name}/>)}
             </div>
             <div className={style.messages}>
-                {messages.map((m) => <Message message={m.message}/>)}
+                {props.messages.map((m) => <Message message={m.message}/>)}
                 <textarea
                     placeholder={"write the message"}
                     value={props.newMessagesText}
                     onChange={onChangeTextareaHandler}>
                 </textarea>
-                <button onClick={sendMessage}>Add message</button>
+                <button onClick={props.sendMessage}>Add message</button>
             </div>
         </div>
     )

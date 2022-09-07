@@ -2,12 +2,13 @@ import React from "react";
 import style from "../ProfileInfo/ProfileInfo.module.css";
 import {Post} from "./Post/Post";
 import {AddPost} from "../AddPost/AddPost";
-import {ActionsTypes, PostType} from "../../../redux/state";
+import {PostType} from "../../../redux/store";
 
 type MyPostsPropsType = {
     posts: Array<PostType>
-    dispatch: (action: ActionsTypes) => void
     newPostText: string
+    updNewPostText: (text: string) => void
+    addPost: () => void
 }
 
 export const MyPosts: React.FC<MyPostsPropsType> = (props) => {
@@ -16,8 +17,9 @@ export const MyPosts: React.FC<MyPostsPropsType> = (props) => {
     return (
         <div className={style.wrap}>
             <AddPost
-                dispatch={props.dispatch}
                 newPostText={props.newPostText}
+                updNewPostText={props.updNewPostText}
+                addPost={props.addPost}
             />
             {postsElements}
         </div>

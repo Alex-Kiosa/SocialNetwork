@@ -1,15 +1,15 @@
 import React from 'react';
-import {StoreType} from "./redux/state";
 import {Route, Routes} from "react-router-dom";
 import {Header} from "./components/Header/Header";
 import {NavBar} from "./components/NavBar/NavBar";
-import {Dialogs} from "./components/Dialogs/Dialogs";
+import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 import {Profile} from "./components/Profile/Profile";
 import {Footer} from "./components/Footer/Footer";
 import {Music} from "./components/Music/Music";
 import {Friends} from "./components/Friends/Friends";
 import {Fundraising} from './components/Fundraising/Fundraising';
 import './App.css';
+import {StoreType} from "./redux/redux-store";
 
 type AppPropsType = {
     store: StoreType
@@ -26,17 +26,19 @@ export const App: React.FC<AppPropsType> = (props) => {
                 <Routes>
                     <Route path="/profile" element={
                         <Profile
-                            posts={state.profilePage.posts}
-                            newPostText={state.profilePage.newPostText}
-                            dispatch={props.store.dispatch.bind(props.store)}
+                            // posts={state.profilePage.posts}
+                            // newPostText={state.profilePage.newPostText}
+                            // dispatch={props.store.dispatch.bind(props.store)}
+                            store={props.store}
                         />}
                     />
                     <Route path="/dialogs" element={
-                        <Dialogs
-                            dialogs={state.dialogsPage.dialogs}
-                            messages={state.dialogsPage.messages}
-                            newMessagesText={state.dialogsPage.newMessagesText}
-                            dispatch={props.store.dispatch.bind(props.store)}
+                        <DialogsContainer
+                            // dialogs={state.dialogsPage.dialogs}
+                            // messages={state.dialogsPage.messages}
+                            // newMessagesText={state.dialogsPage.newMessagesText}
+                            // dispatch={props.store.dispatch.bind(props.store)}
+                            store={props.store}
                         />}
                     />
                     <Route path="/fundraising"

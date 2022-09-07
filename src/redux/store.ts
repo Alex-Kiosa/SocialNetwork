@@ -131,7 +131,7 @@ export const store: StoreType = {
         }
     },
     _callSubscriber() {
-        console.log("no observers")
+        console.log("no observers") // plug
     },
 
     getState() {
@@ -147,7 +147,7 @@ export const store: StoreType = {
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
         this._state.fundraisingPage = fundraisingReducer(this._state.fundraisingPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
-        this._callSubscriber()
+        this._callSubscriber() // уведомляем подписчиков об изменении стейта
     }
 }
 

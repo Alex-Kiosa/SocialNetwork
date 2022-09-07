@@ -1,5 +1,5 @@
 import React from "react";
-import {FundraisingType} from "../../redux/state";
+import {FundraisingType} from "../../redux/store";
 import {FundPost} from "./FundPost";
 
 type FundraisingPropsType = {
