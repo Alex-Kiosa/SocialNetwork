@@ -15,12 +15,7 @@ export const Profile: React.FC<ProfilePropsType> = (props) => {
     return (
         <main className={style.wrap}>
             <ProfileInfo/>
-            <MyPostsContainer
-                store={props.store}
-                // posts={props.posts}
-                // newPostText={props.newPostText}
-                // dispatch={props.dispatch}
-            />
+            <MyPostsContainer store={props.store}/>
         </main>
     )
 }

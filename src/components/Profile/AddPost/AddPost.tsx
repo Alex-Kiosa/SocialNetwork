@@ -15,7 +15,7 @@ export const AddPost: React.FC<AddPostType> = (props) => {
     return (
         <div className={style.wrap}>
             <Textarea newItemText={props.newPostText} updNewPostText={props.updNewPostText}/>
-            <Button addPost={props.addPost} isDisabled={isDisabled}/>
+            <Button addItem={props.addPost} isDisabled={isDisabled}/>
         </div>
     )
 }

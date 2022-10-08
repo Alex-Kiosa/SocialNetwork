@@ -1,12 +1,13 @@
 import {ActionsTypes, PostType, ProfilePageType} from "./store";
 import {v1} from "uuid";
 
-// Action creators
+// Action creator
 export const addPostAC = () => {
     return {
         type: "ADD-POST"
     } as const
 }
+
 export const updNewPostTextAC = (newPostText: string) => {
     return {
         type: "UPD-NEW-POST-TEXT",

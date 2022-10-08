@@ -26,26 +26,14 @@ export const App: React.FC<AppPropsType> = (props) => {
                 <Routes>
                     <Route path="/profile" element={
                         <Profile
-                            // posts={state.profilePage.posts}
-                            // newPostText={state.profilePage.newPostText}
-                            // dispatch={props.store.dispatch.bind(props.store)}
                             store={props.store}
                         />}
                     />
                     <Route path="/dialogs" element={
                         <DialogsContainer
-                            // dialogs={state.dialogsPage.dialogs}
-                            // messages={state.dialogsPage.messages}
-                            // newMessagesText={state.dialogsPage.newMessagesText}
-                            // dispatch={props.store.dispatch.bind(props.store)}
                             store={props.store}
                         />}
                     />
-                    <Route path="/fundraising"
-                           element={
-                               <Fundraising
-                                   fundPosts={state.fundraisingPage.fundPosts}
-                               />}/>
                     <Route path="/music" element={Music}/>
                     <Route path="/settings" element={Friends}/>
                 </Routes>

@@ -4,9 +4,6 @@ import {addPostAC, updNewPostTextAC} from "../../../redux/profileReducer";
 import {StoreType} from "../../../redux/redux-store";
 
 type MyPostsPropsType = {
-    // posts: Array<PostType>
-    // dispatch: (action: ActionsTypes) => void
-    // newPostText: string
     store: StoreType
 }
 
@@ -15,8 +12,7 @@ export const MyPostsContainer: React.FC<MyPostsPropsType> = (props) => {
     const dispatch = props.store.dispatch
 
     const updNewPostTextHandler = (text: string) => {
-        const action = updNewPostTextAC(text)
-        dispatch(action)
+        dispatch(updNewPostTextAC(text))
     }
 
     const addPostHandler = () => {

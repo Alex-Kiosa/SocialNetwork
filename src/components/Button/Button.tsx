@@ -3,7 +3,7 @@ import style from "../Button/Button.module.css";
 
 type ButtonPropsType = {
     isDisabled: boolean
-    addPost: () => void
+    addItem: () => void
 }
 
 export const Button : React.FC<ButtonPropsType> = (props) => {
@@ -11,7 +11,7 @@ export const Button : React.FC<ButtonPropsType> = (props) => {
 
     return (
         <button
-            onClick={props.addPost}
+            onClick={props.addItem}
             disabled={props.isDisabled}
             className={buttonStyles}
         >Add post</button>

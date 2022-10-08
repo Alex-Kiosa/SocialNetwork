@@ -4,14 +4,10 @@ import {StoreType} from "../../redux/redux-store";
 import {Dialogs} from "./Dialogs";
 
 type DialogsPropsType = {
-    // dialogs: Array<DialogType>
-    // messages: Array<MessageType>
-    // newMessagesText: string
-    // dispatch: (action: ActionsTypes) => void
     store: StoreType
 }
 
-export const DialogsContainer : React.FC<DialogsPropsType> = (props) => {
+export const DialogsContainer: React.FC<DialogsPropsType> = (props) => {
     const state = props.store.getState().dialogsPage
 
     const sendMessageHandler = () => {
