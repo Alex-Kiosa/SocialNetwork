@@ -1,4 +1,4 @@
-import {ActionsTypes, PostType, ProfilePageType} from "./store";
+import {ActionsTypes, PostType, ProfilePageType} from "./redux-store";
 import {v1} from "uuid";
 
 // Action creator
@@ -20,7 +20,7 @@ const initialState = {
     posts: [
         {
             id: v1(),
-            text: "React - это JS библиотека, для эфективной отрисовки (рендеринга) SPA или другрими словами одностраничных вебприложений. Что это значит? Реакт подгружает один html документ, в котором мало html и много js. Далее он отслеживает изменение конкретного узла, элемента, и при необходимости рендерит только его, а не всю все страницу, в отличие от класической работы вебсайтов.",
+            text: "React - это JS библиотека, для эффективной отрисовки (рендеринга) SPA или другими словами одностраничных веб приложений. Что это значит? Реакт подгружает один html документ, в котором мало html и много js. Далее он отслеживает изменение конкретного узла, элемента, и при необходимости рендерит только его, а не всю все страницу, в отличие от классической работы вебсайтов.",
             likes: 13
         },
         {
@@ -39,7 +39,7 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionsTy
                 text: state.newPostText,
                 likes: 0
             }
-            state.posts.push(newPost)
+            state.posts.unshift(newPost)
             state.newPostText = ""
             return state
         case "UPD-NEW-POST-TEXT":

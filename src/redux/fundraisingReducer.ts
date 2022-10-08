@@ -1,4 +1,4 @@
-import {ActionsTypes, FundRaisingPageType, ProfilePageType} from "./store";
+import {ActionsTypes, FundRaisingPageType} from "./redux-store";
 import {v1} from "uuid";
 import funder1 from "../assets/img/fundraising/funder-1.jpg";
 import funder2 from "../assets/img/fundraising/funder-2.jpg";

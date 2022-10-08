@@ -1,4 +1,4 @@
-import {ActionsTypes, ProfilePageType, SidebarType} from "./store";
+import {ActionsTypes, SidebarType} from "./redux-store";
 
 const initialState = {
     profile: "profile",

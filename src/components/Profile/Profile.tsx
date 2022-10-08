@@ -5,9 +5,6 @@ import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 import {StoreType} from "../../redux/redux-store";
 
 type ProfilePropsType = {
-    // posts: Array<PostType>
-    // newPostText: string
-    // dispatch: (action: ActionsTypes) => void
     store: StoreType
 }
 

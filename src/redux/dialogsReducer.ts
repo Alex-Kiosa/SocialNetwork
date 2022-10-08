@@ -1,4 +1,4 @@
-import {ActionsTypes, DialogsPageType, MessageType} from "./store";
+import {ActionsTypes, DialogsPageType, MessageType} from "./redux-store";
 import {v1} from "uuid";
 
 // Action creators

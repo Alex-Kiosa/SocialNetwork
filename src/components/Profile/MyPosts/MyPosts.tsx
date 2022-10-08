@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../ProfileInfo/ProfileInfo.module.css";
 import {Post} from "./Post/Post";
-import {AddPost} from "../AddPost/AddPost";
+import {AddItem} from "../AddPost/AddItem";
 import {PostType} from "../../../redux/store";
 
 type MyPostsPropsType = {
@@ -16,10 +16,10 @@ export const MyPosts: React.FC<MyPostsPropsType> = (props) => {
 
     return (
         <div className={style.wrap}>
-            <AddPost
-                newPostText={props.newPostText}
-                updNewPostText={props.updNewPostText}
-                addPost={props.addPost}
+            <AddItem
+                newItemText={props.newPostText}
+                updNewItemText={props.updNewPostText}
+                addItem={props.addPost}
             />
             {postsElements}
         </div>
