@@ -26,7 +26,7 @@ export const App: React.FC<AppPropsType> = (props) => {
                 <Routes>
                     <Route path="/profile" element={
                         <Profile
-                            store={props.store}
+                            // store={props.store}
                         />}
                     />
                     <Route path="/dialogs" element={
