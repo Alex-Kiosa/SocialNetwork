@@ -1,0 +1,19 @@
+.img {
+    margin-bottom: 30px;
+    height: 280px;
+    background-image: url(https://img5.goodfon.ru/wallpaper/nbig/1/c2/matrix-green-numbers.jpg);
+    background-size: contain;
+}
+
+.info {
+    display: flex;
+    margin-bottom: 15px;
+ }
+
+.avatar {
+    background: url(../../../assets/img/avatar.jpg);
+    background-size: cover;
+    width: 140px;
+    height: 140px;
+    border-radius: 50rem;
+}

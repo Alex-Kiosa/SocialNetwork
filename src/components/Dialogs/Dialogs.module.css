@@ -1,0 +1,19 @@
+.wrap {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+            "t t"
+            "d m";
+}
+
+.title {
+    grid-area: t;
+}
+
+.dialogs {
+    grid-area: d;
+}
+.messages {
+    grid-area: m;
+}

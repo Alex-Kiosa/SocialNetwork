@@ -1,0 +1,27 @@
+.wrap {
+    margin-bottom: 10px;
+    padding: 15px 0;
+    grid-area: h;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    width: calc(75% - 25px);
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+}
+
+.link {
+    text-decoration: none;
+    color: #1f1f1f;
+}
+
+.link:hover{
+    color: #0A66C2;
+}
