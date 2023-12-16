@@ -42,6 +42,7 @@ export const MyPostsContainer: React.FC<MyPostsPropsType> = (props) => {
                     const addPostHandler = () => {
                         dispatch(addPostAC())
                     }
+
                     return <MyPosts
                         posts={store.getState().profilePage.posts}
                         newPostText={store.getState().profilePage.newPostText}
