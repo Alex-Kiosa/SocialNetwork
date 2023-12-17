@@ -30,9 +30,7 @@ export const App: React.FC<AppPropsType> = (props) => {
                         />}
                     />
                     <Route path="/dialogs" element={
-                        <DialogsContainer
-                            store={props.store}
-                        />}
+                        <DialogsContainer store={props.store}/>}
                     />
                     <Route path="/music" element={ Music }/>
                     <Route path="/settings" element={Friends}/>
