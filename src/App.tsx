@@ -34,7 +34,7 @@ export const App: React.FC<AppPropsType> = (props) => {
                             store={props.store}
                         />}
                     />
-                    <Route path="/music" element={Music}/>
+                    <Route path="/music" element={ Music }/>
                     <Route path="/settings" element={Friends}/>
                 </Routes>
             </div>
