@@ -8,7 +8,7 @@ type NavBarPropsType = {
 }
 
 export const NavBar: React.FC<NavBarPropsType> = (props) => {
-    const classes = ({isActive}: {isActive: boolean}) => isActive ? style.active : style.item
+    const classes = ({isActive}: {isActive: boolean}) => isActive ? `${style.item} ${style.active}` : style.item
 
     return (
         <nav className={style.wrap}>

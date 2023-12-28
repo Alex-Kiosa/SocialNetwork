@@ -3,7 +3,7 @@ import style from "./Dialogs.module.css"
 import {Dialog} from "./Dialog/Dialog";
 import {Message} from "./Message/Message";
 import {DialogType, MessageType} from "../../redux/store";
-import {AddItem} from "../Profile/AddPost/AddItem";
+import {AddItem} from "../Profile/AddItem/AddItem";
 
 type DialogsPropsType = {
     dialogs: Array<DialogType>

@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./AddPost.module.css";
+import style from "./AddItem.module.css";
 import {Textarea} from "../../Textarea/Textarea";
 import {Button} from "../../Button/Button";
 

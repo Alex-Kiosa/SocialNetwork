@@ -14,6 +14,7 @@
 .dialogs {
     grid-area: d;
 }
+
 .messages {
     grid-area: m;
 }

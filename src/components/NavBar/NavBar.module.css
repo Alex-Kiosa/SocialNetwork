@@ -9,11 +9,9 @@
 .item{
     display: block;
     margin: 0 10px;
-    text-display: none;
 }
 
 .active{
-    margin: 0 10px;
     color: red;
     text-decoration: underline;
 }

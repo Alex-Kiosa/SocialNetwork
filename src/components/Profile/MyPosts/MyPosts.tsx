@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../ProfileInfo/ProfileInfo.module.css";
 import {Post} from "./Post/Post";
-import {AddItem} from "../AddPost/AddItem";
+import {AddItem} from "../AddItem/AddItem";
 import {PostType} from "../../../redux/store";
 
 type MyPostsPropsType = {
