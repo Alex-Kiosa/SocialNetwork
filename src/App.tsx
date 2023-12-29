@@ -7,7 +7,6 @@ import {Profile} from "./components/Profile/Profile";
 import {Footer} from "./components/Footer/Footer";
 import {Music} from "./components/Music/Music";
 import {Friends} from "./components/Friends/Friends";
-import {Fundraising} from './components/Fundraising/Fundraising';
 import './App.css';
 import {StoreType} from "./redux/redux-store";
 
