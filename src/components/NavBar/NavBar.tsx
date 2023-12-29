@@ -13,6 +13,7 @@ export const NavBar: React.FC<NavBarPropsType> = (props) => {
     return (
         <nav className={style.wrap}>
             <NavLink className={classes} to="/profile">{props.sidebarElements.profile}</NavLink>
+            <a href="/profile">{props.sidebarElements.profile}</a>
             <NavLink className={classes} to="/dialogs">{props.sidebarElements.messages}</NavLink>
             <NavLink className={classes} to="/fundraising">{props.sidebarElements.fundraising}</NavLink>
             <NavLink className={classes} to="/music">{props.sidebarElements.music}</NavLink>
